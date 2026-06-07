@@ -1,0 +1,639 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&display=swap');
+
+/* stylelint-disable */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ═══════════════════════════════════════════════════════════════
+   REWRITE STUDIO DESIGN SYSTEM v2.0
+   视觉高级感打磨 - 设计规范
+   ═══════════════════════════════════════════════════════════════ */
+
+@layer base {
+  :root {
+    /* ─────────────────────────────────────────────────────────────
+       1. 间距系统 (4x Grid System)
+       ───────────────────────────────────────────────────────────── */
+    --space-0: 0;
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-5: 20px;
+    --space-6: 24px;
+    --space-8: 32px;
+    --space-10: 40px;
+    --space-12: 48px;
+    --space-16: 64px;
+    
+    /* 语义化间距 */
+    --padding-input: var(--space-4);
+    --padding-card: var(--space-5);
+    --padding-section: var(--space-6);
+    --padding-container: var(--space-8);
+    --gap-element: var(--space-3);
+    --gap-card: var(--space-5);
+    --gap-section: var(--space-8);
+
+    /* ─────────────────────────────────────────────────────────────
+       2. 圆角系统 (Radius Scale)
+       ───────────────────────────────────────────────────────────── */
+    --radius-xs: 6px;
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 20px;
+    --radius-2xl: 24px;
+    --radius-3xl: 28px;
+    --radius-full: 9999px;
+    
+    --radius: var(--radius-lg);
+    --radius-card: var(--radius-2xl);
+    --radius-modal: var(--radius-3xl);
+    --radius-button: var(--radius-lg);
+
+    /* ─────────────────────────────────────────────────────────────
+       3. 颜色系统 (Morandi Palette)
+       ───────────────────────────────────────────────────────────── */
+    --background: 40 30% 98%;           /* #FBFAF6 暖白 */
+    --foreground: 200 18% 26%;          /* #37474F 炭灰 */
+    
+    /* Morandi 核心色 */
+    --morandi-warm: 40 20% 96%;         /* 暖灰背景 */
+    --morandi-cool: 210 15% 97%;        /* 冷灰背景 */
+    --morandi-silver: 200 11% 84%;      /* 银灰强调 */
+    --morandi-sage: 150 8% 75%;         /* 鼠尾草灰 */
+    --morandi-rose: 350 10% 85%;        /* 玫瑰灰 */
+    --morandi-clay: 30 8% 80%;          /* 陶土灰 */
+    
+    /* 透明度层级 (标准化) */
+    --opacity-disabled: 0.15;
+    --opacity-hint: 0.25;
+    --opacity-muted: 0.40;
+    --opacity-subtle: 0.60;
+    --opacity-full: 1.00;
+
+    --card: 0 0% 100%;
+    --card-foreground: 200 18% 26%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 200 18% 26%;
+    --primary: 200 18% 26%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 20% 98%;
+    --secondary-foreground: 200 18% 26%;
+    --muted: 210 20% 98%;
+    --muted-foreground: 200 10% 50%;
+    --accent: 200 11% 84%;
+    --accent-foreground: 200 18% 26%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 200 18% 26%;
+    --input: 200 18% 26%;
+    --ring: 200 18% 26%;
+    
+    --sidebar-background: 210 15% 97%;
+    --sidebar-foreground: 200 18% 26%;
+    --sidebar-primary: 200 18% 26%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 200 18% 26%;
+    --sidebar-border: transparent;
+    --sidebar-ring: 200 18% 26%;
+
+    /* ─────────────────────────────────────────────────────────────
+       4. 阴影系统 (Elevation System)
+       基于 Material Design 的层级映射，适配 Morandi 色调
+       ───────────────────────────────────────────────────────────── */
+    --shadow-level-0: none;
+    --shadow-level-1: 
+      0 1px 2px rgba(55, 71, 79, 0.03),
+      0 1px 3px rgba(55, 71, 79, 0.04);
+    --shadow-level-2: 
+      0 2px 4px rgba(55, 71, 79, 0.03),
+      0 4px 8px rgba(55, 71, 79, 0.04);
+    --shadow-level-3: 
+      0 4px 8px rgba(55, 71, 79, 0.04),
+      0 8px 16px rgba(55, 71, 79, 0.06);
+    --shadow-level-4: 
+      0 8px 16px rgba(55, 71, 79, 0.05),
+      0 16px 32px rgba(55, 71, 79, 0.08);
+    --shadow-level-5: 
+      0 16px 32px rgba(55, 71, 79, 0.06),
+      0 32px 64px rgba(55, 71, 79, 0.10);
+    
+    /* 特殊阴影 */
+    --shadow-inner: 
+      inset 0 1px 4px rgba(55, 71, 79, 0.04),
+      inset 0 2px 8px rgba(55, 71, 79, 0.03);
+    --shadow-glow: 
+      0 0 0 3px rgba(207, 216, 220, 0.25);
+    --shadow-focus: 
+      0 0 0 2px rgba(55, 71, 79, 0.08);
+    
+    /* 语义化阴影 */
+    --shadow-card: var(--shadow-level-3);
+    --shadow-card-hover: var(--shadow-level-4);
+    --shadow-modal: var(--shadow-level-5);
+    --shadow-popover: var(--shadow-level-4);
+    --shadow-button: var(--shadow-level-1);
+    
+    /* 兼容旧变量 */
+    --shadow-xs: var(--shadow-level-1);
+    --shadow-sm: var(--shadow-level-2);
+    --shadow-md: var(--shadow-level-3);
+    --shadow-lg: var(--shadow-level-4);
+    --shadow-xl: var(--shadow-level-5);
+
+    /* ─────────────────────────────────────────────────────────────
+       5. 字体系统 (Typography Scale)
+       ───────────────────────────────────────────────────────────── */
+    --font-size-xs: 14px;
+    --font-size-sm: 16px;
+    --font-size-base: 20px;
+    --font-size-lg: 22px;
+    --font-size-xl: 25px;
+    --font-size-2xl: 26px;
+    --font-size-3xl: 32px;
+    
+    --font-serif: "Noto Serif SC", "Songti SC", serif;
+    --font-sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: "SF Mono", "Fira Code", monospace;
+    
+    --tracking-tight: -0.02em;
+    --tracking-normal: 0;
+    --tracking-wide: 0.05em;
+    --tracking-wider: 0.1em;
+    --tracking-widest: 0.2em;
+    
+    --leading-tight: 1.4;
+    --leading-normal: 1.6;
+    --leading-relaxed: 1.8;
+
+    /* ─────────────────────────────────────────────────────────────
+       6. 动画系统 (Motion System)
+       ───────────────────────────────────────────────────────────── */
+    --duration-instant: 100ms;
+    --duration-fast: 150ms;
+    --duration-normal: 200ms;
+    --duration-slow: 300ms;
+    --duration-slower: 500ms;
+    
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+    --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    /* ─────────────────────────────────────────────────────────────
+       7. 特殊颜色变量
+       ───────────────────────────────────────────────────────────── */
+    --color-highlight: 48 90% 85%;      /* #fcf190 暖黄高亮 */
+    --color-success: 142 76% 36%;
+    --color-warning: 38 92% 50%;
+    --color-error: 0 72% 51%;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════
+     全局样式
+     ═══════════════════════════════════════════════════════════════ */
+  
+  /* 纸张纹理 - 更细腻 */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.02'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════
+     动画定义
+     ═══════════════════════════════════════════════════════════════ */
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes fadeInUp {
+    from { 
+      opacity: 0; 
+      transform: translateY(12px); 
+    }
+    to { 
+      opacity: 1; 
+      transform: translateY(0); 
+    }
+  }
+  
+  @keyframes fadeInScale {
+    from { 
+      opacity: 0; 
+      transform: scale(0.96); 
+    }
+    to { 
+      opacity: 1; 
+      transform: scale(1); 
+    }
+  }
+  
+  @keyframes slideInFromRight {
+    from { 
+      opacity: 0; 
+      transform: translateX(16px); 
+    }
+    to { 
+      opacity: 1; 
+      transform: translateX(0); 
+    }
+  }
+  
+  @keyframes modalPop {
+    0% { 
+      opacity: 0; 
+      transform: scale(0.95) translateY(16px); 
+    }
+    100% { 
+      opacity: 1; 
+      transform: scale(1) translateY(0); 
+    }
+  }
+  
+  @keyframes softGlow {
+    0%, 100% { 
+      box-shadow: var(--shadow-glow); 
+      opacity: 0.7; 
+    }
+    50% { 
+      box-shadow: var(--shadow-glow); 
+      opacity: 1; 
+    }
+  }
+  
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+  
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+  }
+  
+  @keyframes exitUp {
+    from { 
+      opacity: 1; 
+      transform: translateY(0) scale(1);
+    }
+    to { 
+      opacity: 0; 
+      transform: translateY(-20px) scale(0.95);
+    }
+  }
+  
+  @keyframes slideInStagger {
+    from { 
+      opacity: 0; 
+      transform: translateY(16px);
+    }
+    to { 
+      opacity: 1; 
+      transform: translateY(0);
+    }
+  }
+
+  /* 动画工具类 */
+  .animate-fade-in {
+    animation: fadeIn var(--duration-normal) var(--ease-out) forwards;
+  }
+  
+  .animate-fade-in-up {
+    animation: fadeInUp var(--duration-slow) var(--ease-out) forwards;
+  }
+  
+  .animate-fade-in-scale {
+    animation: fadeInScale var(--duration-slow) var(--ease-out) forwards;
+  }
+  
+  .animate-slide-in-right {
+    animation: slideInFromRight var(--duration-slow) var(--ease-out) forwards;
+  }
+  
+  .animate-modal {
+    animation: modalPop var(--duration-slower) var(--ease-out) forwards;
+  }
+  
+  .animate-shimmer {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.4) 50%,
+      transparent 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+  
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .animate-exit-up {
+    animation: exitUp var(--duration-normal) var(--ease-out) forwards;
+  }
+  
+  .animate-slide-in-stagger {
+    animation: slideInStagger var(--duration-slow) var(--ease-out) forwards;
+  }
+  
+  .btn-glow {
+    animation: softGlow 4s ease-in-out infinite;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════
+     交互反馈
+     ═══════════════════════════════════════════════════════════════ */
+  
+  /* 触感反馈 - 按下缩小 */
+  .tactile {
+    transition: transform var(--duration-instant) ease-out;
+  }
+  .tactile:active {
+    transform: scale(0.97);
+  }
+  
+  /* 悬停提升 */
+  .hover-lift {
+    transition: 
+      transform var(--duration-normal) var(--ease-out),
+      box-shadow var(--duration-normal) var(--ease-out);
+  }
+  .hover-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-card-hover);
+  }
+  
+  /* 悬停发光 */
+  .hover-glow {
+    transition: box-shadow var(--duration-normal) var(--ease-out);
+  }
+  .hover-glow:hover {
+    box-shadow: var(--shadow-glow);
+  }
+
+  /* ═══════════════════════════════════════════════════════════════
+     滚动条
+     ═══════════════════════════════════════════════════════════════ */
+  
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: rgba(144, 164, 174, 0.25);
+    border-radius: 100px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(144, 164, 174, 0.4);
+  }
+  
+  /* 隐藏滚动条，悬停时显示 */
+  .scrollbar-autohide::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+  .scrollbar-autohide:hover::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════
+     文本选中
+     ═══════════════════════════════════════════════════════════════ */
+  
+  ::selection {
+    background-color: rgba(207, 216, 220, 0.4);
+    color: #37474F;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════
+     焦点状态
+     ═══════════════════════════════════════════════════════════════ */
+  
+  *:focus {
+    outline: none;
+  }
+  
+  *:focus-visible {
+    outline: 2px solid rgba(55, 71, 79, 0.2);
+    outline-offset: 2px;
+  }
+  
+  textarea:focus,
+  input:focus {
+    box-shadow: var(--shadow-inner) !important;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════
+     暗色模式
+     ═══════════════════════════════════════════════════════════════ */
+  
+  .dark {
+    --background: 200 20% 8%;
+    --foreground: 200 10% 92%;
+    --card: 200 20% 10%;
+    --card-foreground: 200 10% 92%;
+    --popover: 200 20% 10%;
+    --popover-foreground: 200 10% 92%;
+    
+    --shadow-level-1: 
+      0 1px 2px rgba(0, 0, 0, 0.2),
+      0 1px 3px rgba(0, 0, 0, 0.25);
+    --shadow-level-2: 
+      0 2px 4px rgba(0, 0, 0, 0.2),
+      0 4px 8px rgba(0, 0, 0, 0.25);
+    --shadow-level-3: 
+      0 4px 8px rgba(0, 0, 0, 0.25),
+      0 8px 16px rgba(0, 0, 0, 0.3);
+    --shadow-level-4: 
+      0 8px 16px rgba(0, 0, 0, 0.3),
+      0 16px 32px rgba(0, 0, 0, 0.35);
+    --shadow-level-5: 
+      0 16px 32px rgba(0, 0, 0, 0.35),
+      0 32px 64px rgba(0, 0, 0, 0.4);
+    
+    --shadow-inner: inset 0 1px 4px rgba(0, 0, 0, 0.25);
+    --shadow-glow: 0 0 0 3px rgba(207, 216, 220, 0.1);
+    
+    --sidebar-background: 200 20% 6%;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   基础层
+   ═══════════════════════════════════════════════════════════════ */
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-sans);
+    font-feature-settings: "kern" 1, "liga" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  
+  /* 标题使用衬线体 */
+  h1, h2, h3, .font-serif {
+    font-family: var(--font-serif);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   组件层 - 可复用的视觉组件
+   ═══════════════════════════════════════════════════════════════ */
+
+@layer components {
+  /* 卡片基础样式 */
+  .card-base {
+    background: white;
+    border-radius: var(--radius-card);
+    border: 1px solid rgba(55, 71, 79, 0.06);
+    box-shadow: var(--shadow-card);
+    transition: 
+      box-shadow var(--duration-normal) var(--ease-out),
+      border-color var(--duration-normal) var(--ease-out);
+  }
+  
+  .card-base:hover {
+    box-shadow: var(--shadow-card-hover);
+    border-color: rgba(55, 71, 79, 0.1);
+  }
+  
+  /* 输入框基础样式 */
+  .input-base {
+    background: rgba(253, 252, 248, 0.15);
+    border: none;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-inner);
+    padding: var(--padding-input);
+    font-size: var(--font-size-base);
+    line-height: var(--leading-relaxed);
+    color: hsl(var(--foreground));
+    transition: box-shadow var(--duration-normal) var(--ease-out);
+  }
+  
+  .input-base::placeholder {
+    color: rgba(55, 71, 79, 0.25);
+    font-family: var(--font-serif);
+    font-style: italic;
+  }
+  
+  /* 标签样式 */
+  .label-micro {
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    letter-spacing: var(--tracking-widest);
+    text-transform: uppercase;
+    color: rgba(55, 71, 79, 0.35);
+  }
+  
+  .label-small {
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    letter-spacing: var(--tracking-wider);
+    text-transform: uppercase;
+    color: rgba(55, 71, 79, 0.4);
+  }
+  
+  /* 按钮样式 */
+  .btn-primary {
+    background: hsl(var(--foreground));
+    color: white;
+    border-radius: var(--radius-button);
+    padding: var(--space-4) var(--space-6);
+    font-weight: 500;
+    font-size: var(--font-size-sm);
+    box-shadow: var(--shadow-button);
+    transition: 
+      transform var(--duration-instant) ease-out,
+      box-shadow var(--duration-normal) var(--ease-out),
+      opacity var(--duration-normal) var(--ease-out);
+  }
+  
+  .btn-primary:hover {
+    opacity: 0.92;
+  }
+  
+  .btn-primary:active {
+    transform: scale(0.98);
+  }
+  
+  .btn-ghost {
+    background: transparent;
+    color: rgba(55, 71, 79, 0.5);
+    border-radius: var(--radius-button);
+    padding: var(--space-3) var(--space-5);
+    font-weight: 500;
+    font-size: var(--font-size-sm);
+    border: 1px solid transparent;
+    transition: 
+      background var(--duration-fast) var(--ease-out),
+      color var(--duration-fast) var(--ease-out),
+      border-color var(--duration-fast) var(--ease-out);
+  }
+  
+  .btn-ghost:hover {
+    background: rgba(255, 255, 255, 0.6);
+    color: hsl(var(--foreground));
+    border-color: rgba(55, 71, 79, 0.08);
+  }
+  
+  /* 分隔线 */
+  .divider {
+    height: 1px;
+    background: linear-gradient(
+      to right,
+      rgba(55, 71, 79, 0.08),
+      transparent
+    );
+  }
+  
+  /* 空状态容器 */
+  .empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-12);
+    text-align: center;
+  }
+  
+  .empty-state-icon {
+    width: 96px;
+    height: 96px;
+    border-radius: var(--radius-2xl);
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-level-4);
+    margin-bottom: var(--space-6);
+  }
+}
