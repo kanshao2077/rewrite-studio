@@ -9,7 +9,7 @@
 <img width="3434" height="1916" alt="CleanShot 2026-06-24 at 16 14 57@2x" src="https://github.com/user-attachments/assets/c3a7a55f-47d7-4585-bbaf-5ecc23c133e1" />
 
 
-                                     https://kanshao2077.github.io/rewrite-studio/
+                                                https://kanshao2077.github.io/rewrite-studio/
 
 ## 它能做什么
 
