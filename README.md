@@ -5,7 +5,9 @@
 你可以把参考案例、待改写素材、系统提示词放在一起管理，然后一键复制成完整语料，丢给 AI 继续处理。
 
 在线访问：
-![Uploading CleanShot 2026-06-24 at 16.14.57@2x.png…]()
+
+<img width="3434" height="1916" alt="CleanShot 2026-06-24 at 16 14 57@2x" src="https://github.com/user-attachments/assets/c3a7a55f-47d7-4585-bbaf-5ecc23c133e1" />
+
 
 https://kanshao2077.github.io/rewrite-studio/
 
